@@ -12,7 +12,7 @@ body, main {
 }
 .title{
   font-size: 40px;
-  color: salmon;
+  color: cyan;
   letter-spacing: .2em;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
@@ -29,7 +29,7 @@ body, main {
   display: flex;
   flex-wrap: wrap;
   height: 100px;
-  width: 100px;
+  width: 75px;
 }
 .square{
   display: flex;
@@ -38,6 +38,10 @@ body, main {
   width: 25px;
   height: 25px;
 }
-.hide-square{
+.hideSquare{
+  display: flex;
   visibility: hidden;
+  box-sizing: border-box;
+  width: 25px;
+  height: 25px;
 }
