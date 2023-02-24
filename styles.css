@@ -1,5 +1,4 @@
 body, main {
-  background-color: black;
   color: white;
   display: flex;
   justify-content: center;
@@ -47,4 +46,10 @@ body, main {
   box-sizing: border-box;
   width: 25px;
   height: 25px;
+}
+canvas{
+  border-right: 2px solid violet;
+  border-left: 2px solid violet;
+  border-bottom: 2px solid violet;
+  border-radius: 0 0 10px 10px;
 }

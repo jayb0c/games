@@ -1,10 +1,10 @@
-/* The board and the general block container */
+/* The board and the general block container
 var gameBoard = document.getElementById('board');
 var defaultBlock = document.createElement('div');
 defaultBlock.className = 'defaultBlock';
 
-/* The default block is an empty grid which is 3 wide by 4 blocks tall. Each shape has a name and an array of numbers that describe which blocks will get colored in on the default block shape to make the new shape. Grid blocks that are not needed to make a shape will be hidden and only the visible squares will interact with eachother in gameplay.
-*/
+The default block is an empty grid which is 3 wide by 4 blocks tall. Each shape has a name and an array of numbers that describe which blocks will get colored in on the default block shape to make the new shape. Grid blocks that are not needed to make a shape will be hidden and only the visible squares will interact with eachother in gameplay.
+
 
 let shapes = [
   {
@@ -72,3 +72,14 @@ function sendShape(){
 }
 
 sendShape();
+
+*/
+
+var canvas = document.getElementById("canvas");
+var ctx = canvas.getContext("2d");
+ctx.fillStyle = "#FF8001";
+ctx.fillRect(0, 0, 150, 75);
+//fillRect(x,y,width,height)
+ctx.moveTo(0, 0);
+ctx.lineTo(200, 100);
+ctx.stroke();
