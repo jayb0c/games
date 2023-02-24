@@ -49,8 +49,9 @@ body, main {
   height: 25px;
 }
 canvas{
-  border-right: 2px solid violet;
-  border-left: 2px solid violet;
-  border-bottom: 2px solid violet;
+  border-right: 3px solid orangered;
+  border-left: 3px solid orangered;
+  border-bottom: 3px solid orangered;
   border-radius: 0 0 10px 10px;
+  box-sizing: content-box;
 }
