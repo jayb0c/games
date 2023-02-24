@@ -1,12 +1,8 @@
-let count = 0;
-setInterval(() => {
-  count++;
-  console.log(count);
-}, 1000);
 
 function draw(move){
   const canvas = document.getElementById("canvas");
   let ctx = canvas.getContext("2d");
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.beginPath();
     ctx.moveTo(0, 0 + move);
     ctx.lineTo(75, 0 + move);
@@ -16,13 +12,17 @@ function draw(move){
     ctx.lineTo(25, 50 + move);
     ctx.lineTo(25, 25 + move);
     ctx.lineTo(0, 25 + move);
+    ctx.fillStyle = "#FF8001";
     ctx.fill();
     console.log(move);
-
 }
 
-draw(count);
-
+let count = 0;
+setInterval(() => {
+  count+= 2;
+  draw(count);
+  console.log(count);
+}, 100);
 
 /* O-Block
 var ctx = canvas.getContext("2d");
