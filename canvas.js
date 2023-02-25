@@ -306,248 +306,278 @@ ctx.fill();
 const shapeArray = ['o1', 'o2', 'i1', 'i2', 's1', 's2', 'z1', 'z2', 'l1', 'l25', 'l50', 'l75', 'j1', 'j25', 'j50', 'j75', 't1', 't25', 't50', 't75'];
 const canvas = document.getElementById("canvas");
 
+
 setInterval(() => {
   draw();
-}, 500);
+}, 10);
 
+
+let dropping = 0;
+let shape = 'o1';
+let randomColor = '#FF4323';
 
 function draw(){
+  console.log(dropping);
+  if(dropping >= 699){
+    dropping = 0;
+    shape = shapeArray[Math.floor(Math.random() * shapeArray.length)];
+    randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+  }
 
-  let shape = shapeArray[Math.floor(Math.random() * shapeArray.length)];
-  let randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
-  let halfBoard = 250;
+  let halfBoard = 250; //sets pieces in middle of board. Will be used to move x axis.
+  dropping += 1;
 
   let ctx = canvas.getContext("2d");
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   switch (shape) {
     case "o1": {
+      if (dropping === 700) { dropping = 0 };
       ctx.fillStyle = randomColor;
-      ctx.fillRect(0, 0, 50 + halfBoard, 50);
+      ctx.fillRect(0 + halfBoard, 0 + dropping, 50, 50);
       break;
     }
     case "o2": {
+      if (dropping === 700) { dropping = 0 };
       ctx.fillStyle = randomColor;
-      ctx.fillRect(0, 0, 50 + halfBoard, 50);
+      ctx.fillRect(0 + halfBoard, 0 + dropping, 50, 50);
       break;
     }
     case "i1": {
+      if (dropping === 700) { dropping = 0 };
       ctx.fillStyle = randomColor;
-      ctx.fillRect(halfBoard, 0, 25, 100);
+      ctx.fillRect(halfBoard, 0 + dropping, 25, 100);
       break;
     }
     case "i2": {
+      if (dropping === 700) { dropping = 0 };
       ctx.fillStyle = randomColor;
-      ctx.fillRect(halfBoard, 0, 100, 25);
+      ctx.fillRect(halfBoard, 0 + dropping, 100, 25);
       break;
     }
     case "s1": {
+      if (dropping === 700) { dropping = 0 };
       ctx.beginPath();
-      ctx.moveTo(25 + halfBoard, 0);
-      ctx.lineTo(75 + halfBoard, 0);
-      ctx.lineTo(75 + halfBoard, 25);
-      ctx.lineTo(75 + halfBoard, 25);
-      ctx.lineTo(50 + halfBoard, 25);
-      ctx.lineTo(50 + halfBoard, 50);
-      ctx.lineTo(25 + halfBoard, 50);
-      ctx.lineTo(0 + halfBoard, 50);
-      ctx.lineTo(0 + halfBoard, 25);
-      ctx.lineTo(25 + halfBoard, 25);
+      ctx.moveTo(25 + halfBoard, 0 + dropping);
+      ctx.lineTo(75 + halfBoard, 0 + dropping);
+      ctx.lineTo(75 + halfBoard, 25 + dropping);
+      ctx.lineTo(75 + halfBoard, 25 + dropping);
+      ctx.lineTo(50 + halfBoard, 25 + dropping);
+      ctx.lineTo(50 + halfBoard, 50 + dropping);
+      ctx.lineTo(25 + halfBoard, 50 + dropping);
+      ctx.lineTo(0 + halfBoard, 50 + dropping);
+      ctx.lineTo(0 + halfBoard, 25 + dropping);
+      ctx.lineTo(25 + halfBoard, 25 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
       break;
     }
     case "s2": {
+      if (dropping === 700) { dropping = 0 };
       ctx.beginPath();
-      ctx.moveTo(0 + halfBoard, 0);
-      ctx.lineTo(25 + halfBoard, 0);
-      ctx.lineTo(25 + halfBoard, 25);
-      ctx.lineTo(50 + halfBoard, 25);
-      ctx.lineTo(50 + halfBoard, 75);
-      ctx.lineTo(25 + halfBoard, 75);
-      ctx.lineTo(25 + halfBoard, 50);
-      ctx.lineTo(0 + halfBoard, 50);
+      ctx.moveTo(0 + halfBoard, 0 + dropping);
+      ctx.lineTo(25 + halfBoard, 0 + dropping);
+      ctx.lineTo(25 + halfBoard, 25 + dropping);
+      ctx.lineTo(50 + halfBoard, 25 + dropping);
+      ctx.lineTo(50 + halfBoard, 75 + dropping);
+      ctx.lineTo(25 + halfBoard, 75 + dropping);
+      ctx.lineTo(25 + halfBoard, 50 + dropping);
+      ctx.lineTo(0 + halfBoard, 50 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
       break;
     }
     case "z1": {
+      if (dropping === 700) { dropping = 0 };
       ctx.beginPath();
-      ctx.moveTo(0 + halfBoard, 0);
-      ctx.lineTo(50 + halfBoard, 0);
-      ctx.lineTo(50 + halfBoard, 25);
-      ctx.lineTo(75 + halfBoard, 25);
-      ctx.lineTo(75 + halfBoard, 50);
-      ctx.lineTo(25 + halfBoard, 50);
-      ctx.lineTo(25 + halfBoard, 25);
-      ctx.lineTo(0 + halfBoard, 25);
+      ctx.moveTo(0 + halfBoard, 0 + dropping);
+      ctx.lineTo(50 + halfBoard, 0 + dropping);
+      ctx.lineTo(50 + halfBoard, 25 + dropping);
+      ctx.lineTo(75 + halfBoard, 25 + dropping);
+      ctx.lineTo(75 + halfBoard, 50 + dropping);
+      ctx.lineTo(25 + halfBoard, 50 + dropping);
+      ctx.lineTo(25 + halfBoard, 25 + dropping);
+      ctx.lineTo(0 + halfBoard, 25 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
       break;
     }
     case "z2": {
+      if (dropping === 700) { dropping = 0 };
       ctx.beginPath();
-      ctx.moveTo(25 + halfBoard, 0);
-      ctx.lineTo(50 + halfBoard, 0);
-      ctx.lineTo(50 + halfBoard, 50);
-      ctx.lineTo(25 + halfBoard, 50);
-      ctx.lineTo(25 + halfBoard, 75);
-      ctx.lineTo(0 + halfBoard, 75);
-      ctx.lineTo(0 + halfBoard, 25);
-      ctx.lineTo(25 + halfBoard, 25);
+      ctx.moveTo(25 + halfBoard, 0 + dropping);
+      ctx.lineTo(50 + halfBoard, 0 + dropping);
+      ctx.lineTo(50 + halfBoard, 50 + dropping);
+      ctx.lineTo(25 + halfBoard, 50 + dropping);
+      ctx.lineTo(25 + halfBoard, 75 + dropping);
+      ctx.lineTo(0 + halfBoard, 75 + dropping);
+      ctx.lineTo(0 + halfBoard, 25 + dropping);
+      ctx.lineTo(25 + halfBoard, 25 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
       break;
     }
     case "l1": {
+      if (dropping === 700) { dropping = 0 };
       ctx.beginPath();
-      ctx.moveTo(0 + halfBoard, 0);
-      ctx.lineTo(25 + halfBoard, 0);
-      ctx.lineTo(25 + halfBoard, 50);
-      ctx.lineTo(50 + halfBoard, 50);
-      ctx.lineTo(50 + halfBoard, 75);
-      ctx.lineTo(0 + halfBoard, 75);
+      ctx.moveTo(0 + halfBoard, 0 + dropping);
+      ctx.lineTo(25 + halfBoard, 0 + dropping);
+      ctx.lineTo(25 + halfBoard, 50 + dropping);
+      ctx.lineTo(50 + halfBoard, 50 + dropping);
+      ctx.lineTo(50 + halfBoard, 75 + dropping);
+      ctx.lineTo(0 + halfBoard, 75 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
       break;
     }
     case "l25": {
+      if (dropping === 700) { dropping = 0 };
       ctx.beginPath();
-      ctx.moveTo(0 + halfBoard, 0);
-      ctx.lineTo(75 + halfBoard, 0);
-      ctx.lineTo(75 + halfBoard, 25);
-      ctx.lineTo(25 + halfBoard, 25);
-      ctx.lineTo(25 + halfBoard, 50);
-      ctx.lineTo(0 + halfBoard, 50);
+      ctx.moveTo(0 + halfBoard, 0 + dropping);
+      ctx.lineTo(75 + halfBoard, 0 + dropping);
+      ctx.lineTo(75 + halfBoard, 25 + dropping);
+      ctx.lineTo(25 + halfBoard, 25 + dropping);
+      ctx.lineTo(25 + halfBoard, 50 + dropping);
+      ctx.lineTo(0 + halfBoard, 50 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
       break;
     }
     case "l50": {
+      if (dropping === 700) { dropping = 0 };
       ctx.beginPath();
-      ctx.moveTo(0 + halfBoard, 0);
-      ctx.lineTo(50 + halfBoard, 0);
-      ctx.lineTo(50 + halfBoard, 75);
-      ctx.lineTo(25 + halfBoard, 75);
-      ctx.lineTo(25 + halfBoard, 25);
-      ctx.lineTo(0 + halfBoard, 25);
+      ctx.moveTo(0 + halfBoard, 0 + dropping);
+      ctx.lineTo(50 + halfBoard, 0 + dropping);
+      ctx.lineTo(50 + halfBoard, 75 + dropping);
+      ctx.lineTo(25 + halfBoard, 75 + dropping);
+      ctx.lineTo(25 + halfBoard, 25 + dropping);
+      ctx.lineTo(0 + halfBoard, 25 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
       break;
     }
     case "l75": {
+      if (dropping === 700) { dropping = 0 };
       ctx.beginPath();
-      ctx.moveTo(50 + halfBoard, 0);
-      ctx.lineTo(75 + halfBoard, 0);
-      ctx.lineTo(75 + halfBoard, 50);
-      ctx.lineTo(0 + halfBoard, 50);
-      ctx.lineTo(0 + halfBoard, 25);
-      ctx.lineTo(50 + halfBoard, 25);
+      ctx.moveTo(50 + halfBoard, 0 + dropping);
+      ctx.lineTo(75 + halfBoard, 0 + dropping);
+      ctx.lineTo(75 + halfBoard, 50 + dropping);
+      ctx.lineTo(0 + halfBoard, 50 + dropping);
+      ctx.lineTo(0 + halfBoard, 25 + dropping);
+      ctx.lineTo(50 + halfBoard, 25 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
       break;
     }
     case "j1": {
+      if (dropping === 700) { dropping = 0 };
       ctx.beginPath();
-      ctx.moveTo(25 + halfBoard, 0);
-      ctx.lineTo(50 + halfBoard, 0);
-      ctx.lineTo(50 + halfBoard, 75);
-      ctx.lineTo(25 + halfBoard, 75);
-      ctx.lineTo(0 + halfBoard, 75);
-      ctx.lineTo(0 + halfBoard, 50);
-      ctx.lineTo(25 + halfBoard, 50);
+      ctx.moveTo(25 + halfBoard, 0 + dropping);
+      ctx.lineTo(50 + halfBoard, 0 + dropping);
+      ctx.lineTo(50 + halfBoard, 75 + dropping);
+      ctx.lineTo(25 + halfBoard, 75 + dropping);
+      ctx.lineTo(0 + halfBoard, 75 + dropping);
+      ctx.lineTo(0 + halfBoard, 50 + dropping);
+      ctx.lineTo(25 + halfBoard, 50 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
       break;
     }
     case "j25": {
+      if (dropping === 700) { dropping = 0 };
       ctx.beginPath();
-      ctx.moveTo(0 + halfBoard, 0);
-      ctx.lineTo(25 + halfBoard, 0);
-      ctx.lineTo(25 + halfBoard, 25);
-      ctx.lineTo(75 + halfBoard, 25);
-      ctx.lineTo(75 + halfBoard, 50);
-      ctx.lineTo(0 + halfBoard, 50);
+      ctx.moveTo(0 + halfBoard, 0 + dropping);
+      ctx.lineTo(25 + halfBoard, 0 + dropping);
+      ctx.lineTo(25 + halfBoard, 25 + dropping);
+      ctx.lineTo(75 + halfBoard, 25 + dropping);
+      ctx.lineTo(75 + halfBoard, 50 + dropping);
+      ctx.lineTo(0 + halfBoard, 50 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
       break;
     }
     case "j50": {
+      if (dropping === 700) { dropping = 0 };
       ctx.beginPath();
-      ctx.moveTo(0 + halfBoard, 0);
-      ctx.lineTo(50 + halfBoard, 0);
-      ctx.lineTo(50 + halfBoard, 25);
-      ctx.lineTo(25 + halfBoard, 25);
-      ctx.lineTo(25 + halfBoard, 75);
-      ctx.lineTo(0 + halfBoard, 75);
+      ctx.moveTo(0 + halfBoard, 0 + dropping);
+      ctx.lineTo(50 + halfBoard, 0 + dropping);
+      ctx.lineTo(50 + halfBoard, 25 + dropping);
+      ctx.lineTo(25 + halfBoard, 25 + dropping);
+      ctx.lineTo(25 + halfBoard, 75 + dropping);
+      ctx.lineTo(0 + halfBoard, 75 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
       break;
     }
     case "j75": {
+      if (dropping === 700) { dropping = 0 };
       ctx.beginPath();
-      ctx.moveTo(0 + halfBoard, 0);
-      ctx.lineTo(75 + halfBoard, 0);
-      ctx.lineTo(75 + halfBoard, 50);
-      ctx.lineTo(50 + halfBoard, 50);
-      ctx.lineTo(50 + halfBoard, 25);
-      ctx.lineTo(0 + halfBoard, 25);
+      ctx.moveTo(0 + halfBoard, 0 + dropping);
+      ctx.lineTo(75 + halfBoard, 0 + dropping);
+      ctx.lineTo(75 + halfBoard, 50 + dropping);
+      ctx.lineTo(50 + halfBoard, 50 + dropping);
+      ctx.lineTo(50 + halfBoard, 25 + dropping);
+      ctx.lineTo(0 + halfBoard, 25 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
       break;
     }
     case "t1": {
+      if (dropping === 700) { dropping = 0 };
       ctx.beginPath();
-      ctx.moveTo(0 + halfBoard, 0);
-      ctx.lineTo(75 + halfBoard, 0);
-      ctx.lineTo(75 + halfBoard, 25);
-      ctx.lineTo(50 + halfBoard, 25);
-      ctx.lineTo(50 + halfBoard, 50);
-      ctx.lineTo(25 + halfBoard, 50);
-      ctx.lineTo(25 + halfBoard, 25);
-      ctx.lineTo(0 + halfBoard, 25);
+      ctx.moveTo(0 + halfBoard, 0 + dropping);
+      ctx.lineTo(75 + halfBoard, 0 + dropping);
+      ctx.lineTo(75 + halfBoard, 25 + dropping);
+      ctx.lineTo(50 + halfBoard, 25 + dropping);
+      ctx.lineTo(50 + halfBoard, 50 + dropping);
+      ctx.lineTo(25 + halfBoard, 50 + dropping);
+      ctx.lineTo(25 + halfBoard, 25 + dropping);
+      ctx.lineTo(0 + halfBoard, 25 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
       break;
     }
     case "t25": {
+      if (dropping === 700) { dropping = 0 };
       ctx.beginPath();
-      ctx.moveTo(25 + halfBoard, 0);
-      ctx.lineTo(50 + halfBoard, 0);
-      ctx.lineTo(50 + halfBoard, 75);
-      ctx.lineTo(25 + halfBoard, 75);
-      ctx.lineTo(25 + halfBoard, 50);
-      ctx.lineTo(0 + halfBoard, 50);
-      ctx.lineTo(0 + halfBoard, 25);
-      ctx.lineTo(25 + halfBoard, 25);
+      ctx.moveTo(25 + halfBoard, 0 + dropping);
+      ctx.lineTo(50 + halfBoard, 0 + dropping);
+      ctx.lineTo(50 + halfBoard, 75 + dropping);
+      ctx.lineTo(25 + halfBoard, 75 + dropping);
+      ctx.lineTo(25 + halfBoard, 50 + dropping);
+      ctx.lineTo(0 + halfBoard, 50 + dropping);
+      ctx.lineTo(0 + halfBoard, 25 + dropping);
+      ctx.lineTo(25 + halfBoard, 25 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
       break;
     }
     case "t50": {
+      if (dropping === 700) { dropping = 0 };
       ctx.beginPath();
-      ctx.moveTo(0 + halfBoard, 25);
-      ctx.lineTo(25 + halfBoard, 25);
-      ctx.lineTo(25 + halfBoard, 0);
-      ctx.lineTo(50 + halfBoard, 0);
-      ctx.lineTo(50 + halfBoard, 25);
-      ctx.lineTo(75 + halfBoard, 25);
-      ctx.lineTo(75 + halfBoard, 50);
-      ctx.lineTo(0 + halfBoard, 50);
+      ctx.moveTo(0 + halfBoard, 25 + dropping);
+      ctx.lineTo(25 + halfBoard, 25 + dropping);
+      ctx.lineTo(25 + halfBoard, 0 + dropping);
+      ctx.lineTo(50 + halfBoard, 0 + dropping);
+      ctx.lineTo(50 + halfBoard, 25 + dropping);
+      ctx.lineTo(75 + halfBoard, 25 + dropping);
+      ctx.lineTo(75 + halfBoard, 50 + dropping);
+      ctx.lineTo(0 + halfBoard, 50 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
       break;
     }
     case "t75": {
+      if (dropping === 700) { dropping = 0 };
       ctx.beginPath();
-      ctx.moveTo(0 + halfBoard, 0);
-      ctx.lineTo(25 + halfBoard, 0);
-      ctx.lineTo(25 + halfBoard, 25);
-      ctx.lineTo(50 + halfBoard, 25);
-      ctx.lineTo(50 + halfBoard, 50);
-      ctx.lineTo(25 + halfBoard, 50);
-      ctx.lineTo(25 + halfBoard, 75);
-      ctx.lineTo(0 + halfBoard, 75);
+      ctx.moveTo(0 + halfBoard, 0 + dropping);
+      ctx.lineTo(25 + halfBoard, 0 + dropping);
+      ctx.lineTo(25 + halfBoard, 25 + dropping);
+      ctx.lineTo(50 + halfBoard, 25 + dropping);
+      ctx.lineTo(50 + halfBoard, 50 + dropping);
+      ctx.lineTo(25 + halfBoard, 50 + dropping);
+      ctx.lineTo(25 + halfBoard, 75 + dropping);
+      ctx.lineTo(0 + halfBoard, 75 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
       break;
