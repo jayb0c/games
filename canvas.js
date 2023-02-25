@@ -99,22 +99,37 @@ ctx.fillStyle = "#FF8001";
 ctx.fill();
 */
 
-/* Z-Block
+/* Z-Block - 1
 var ctx = canvas.getContext("2d");
 ctx.beginPath();
 ctx.moveTo(0, 0);
-ctx.lineTo(25, 0);
-ctx.lineTo(25, 25);
+ctx.lineTo(50, 0);
 ctx.lineTo(50, 25);
-ctx.lineTo(50, 75);
-ctx.lineTo(25, 75);
+ctx.lineTo(75, 25);
+ctx.lineTo(75, 50);
 ctx.lineTo(25, 50);
-ctx.lineTo(0, 50);
+ctx.lineTo(25, 25);
+ctx.lineTo(0, 25);
 ctx.fillStyle = "#FF8001";
 ctx.fill();
 */
 
-/* L-Block upright
+/* Z-Block - 2
+var ctx = canvas.getContext("2d");
+ctx.beginPath();
+ctx.moveTo(25, 0);
+ctx.lineTo(50, 0);
+ctx.lineTo(50, 50);
+ctx.lineTo(25, 50);
+ctx.lineTo(25, 75);
+ctx.lineTo(0, 75);
+ctx.lineTo(0, 25);
+ctx.lineTo(25, 25);
+ctx.fillStyle = "#FF8001";
+ctx.fill();
+*/
+
+/* L-Block - 1
 var ctx = canvas.getContext("2d");
 ctx.beginPath();
 ctx.moveTo(0, 0);
@@ -127,7 +142,47 @@ ctx.fillStyle = "#FF8001";
 ctx.fill();
 */
 
-/* J-Block
+/* L-Block - 1/4
+var ctx = canvas.getContext("2d");
+ctx.beginPath();
+ctx.moveTo(0, 0);
+ctx.lineTo(75, 0);
+ctx.lineTo(75, 25);
+ctx.lineTo(25, 25);
+ctx.lineTo(25, 50);
+ctx.lineTo(0, 50);
+ctx.fillStyle = "#FF8001";
+ctx.fill();
+*/
+
+/* L-Block - 1/2
+var ctx = canvas.getContext("2d");
+ctx.beginPath();
+ctx.moveTo(0, 0);
+ctx.lineTo(50, 0);
+ctx.lineTo(50, 75);
+ctx.lineTo(25, 75);
+ctx.lineTo(25, 25);
+ctx.lineTo(0, 25);
+ctx.fillStyle = "#FF8001";
+ctx.fill();
+*/
+
+/* L-Block - 3/4
+var ctx = canvas.getContext("2d");
+ctx.beginPath();
+ctx.moveTo(50, 0);
+ctx.lineTo(75, 0);
+ctx.lineTo(75, 50);
+ctx.lineTo(0, 50);
+ctx.lineTo(0, 25);
+ctx.lineTo(50, 25);
+ctx.fillStyle = "#FF8001";
+ctx.fill();
+*/
+
+
+/* J-Block - 1
 var ctx = canvas.getContext("2d");
 ctx.beginPath();
 ctx.moveTo(25, 0);
@@ -137,6 +192,45 @@ ctx.lineTo(25, 75);
 ctx.lineTo(0, 75);
 ctx.lineTo(0, 50);
 ctx.lineTo(25, 50);
+ctx.fillStyle = "#FF8001";
+ctx.fill();
+*/
+
+/* J-Block - 1/4
+var ctx = canvas.getContext("2d");
+ctx.beginPath();
+ctx.moveTo(0, 0);
+ctx.lineTo(25, 0);
+ctx.lineTo(25, 25);
+ctx.lineTo(75, 25);
+ctx.lineTo(75, 50);
+ctx.lineTo(0, 50);
+ctx.fillStyle = "#FF8001";
+ctx.fill();
+*/
+
+/* J-Block - 1/2
+var ctx = canvas.getContext("2d");
+ctx.beginPath();
+ctx.moveTo(0, 0);
+ctx.lineTo(50, 0);
+ctx.lineTo(50, 25);
+ctx.lineTo(25, 25);
+ctx.lineTo(25, 75);
+ctx.lineTo(0, 75);
+ctx.fillStyle = "#FF8001";
+ctx.fill();
+*/
+
+/* J-Block - 3/4
+var ctx = canvas.getContext("2d");
+ctx.beginPath();
+ctx.moveTo(0, 0);
+ctx.lineTo(75, 0);
+ctx.lineTo(75, 50);
+ctx.lineTo(50, 50);
+ctx.lineTo(50, 25);
+ctx.lineTo(0, 25);
 ctx.fillStyle = "#FF8001";
 ctx.fill();
 */
@@ -152,6 +246,36 @@ ctx.lineTo(50, 50);
 ctx.lineTo(25, 50);
 ctx.lineTo(25, 25);
 ctx.lineTo(0, 25);
+ctx.fillStyle = "#FF8001";
+ctx.fill();
+*/
+
+/* T-Block 1/4
+var ctx = canvas.getContext("2d");
+ctx.beginPath();
+ctx.moveTo(25, 0);
+ctx.lineTo(50, 0);
+ctx.lineTo(50, 75);
+ctx.lineTo(25, 75);
+ctx.lineTo(25, 50);
+ctx.lineTo(0, 50);
+ctx.lineTo(0, 25);
+ctx.lineTo(25, 25);
+ctx.fillStyle = "#FF8001";
+ctx.fill();
+*/
+
+/* T-Block 1/2
+var ctx = canvas.getContext("2d");
+ctx.beginPath();
+ctx.moveTo(25, 0);
+ctx.lineTo(50, 0);
+ctx.lineTo(50, 75);
+ctx.lineTo(25, 75);
+ctx.lineTo(25, 50);
+ctx.lineTo(0, 50);
+ctx.lineTo(0, 25);
+ctx.lineTo(25, 25);
 ctx.fillStyle = "#FF8001";
 ctx.fill();
 */
