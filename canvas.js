@@ -344,8 +344,10 @@ function draw(){
         dropping += 1;
       } else if (dropping === 700) {
         let shape = {};
+        shape['shape'] = shape;
         shape['color'] = randomColor;
-        shape['dropping'] = dropping;
+        shape['y'] = dropping;
+        shape['x'] = halfBoard;
         postions.o1.push(shape);
         console.log(postions.o1);
       }
@@ -357,6 +359,15 @@ function draw(){
       if (dropping < 650) {
         dropping += 1;
       }
+      else if (dropping === 700) {
+        let shape = {};
+        shape['shape'] = shape;
+        shape['color'] = randomColor;
+        shape['y'] = dropping;
+        shape['x'] = halfBoard;
+        postions.i1.push(shape);
+        console.log(postions.i1);
+      }
       ctx.fillStyle = randomColor;
       ctx.fillRect(halfBoard, 0 + dropping, 25, 100);
       break;
@@ -365,6 +376,15 @@ function draw(){
       if (dropping < 725) {
         dropping += 1;
       }
+      else if (dropping === 700) {
+        let shape = {};
+        shape['shape'] = shape;
+        shape['color'] = randomColor;
+        shape['y'] = dropping;
+        shape['x'] = halfBoard;
+        postions.i2.push(shape);
+        console.log(postions.i2);
+      }
       ctx.fillStyle = randomColor;
       ctx.fillRect(halfBoard, 0 + dropping, 100, 25);
       break;
@@ -372,6 +392,15 @@ function draw(){
     case "s1": {
       if (dropping < 700) {
         dropping += 1;
+      }
+      else if (dropping === 700) {
+        let shape = {};
+        shape['shape'] = shape;
+        shape['color'] = randomColor;
+        shape['y'] = dropping;
+        shape['x'] = halfBoard;
+        postions.s1.push(shape);
+        console.log(postions.s1);
       }
       ctx.beginPath();
       ctx.moveTo(25 + halfBoard, 0 + dropping);
@@ -392,6 +421,15 @@ function draw(){
       if (dropping < 675) {
         dropping += 1;
       }
+      else if (dropping === 700) {
+        let shape = {};
+        shape['shape'] = shape;
+        shape['color'] = randomColor;
+        shape['y'] = dropping;
+        shape['x'] = halfBoard;
+        postions.s2.push(shape);
+        console.log(postions.s2);
+      }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
       ctx.lineTo(25 + halfBoard, 0 + dropping);
@@ -408,6 +446,15 @@ function draw(){
     case "z1": {
       if (dropping < 700) {
         dropping += 1;
+      }
+      else if (dropping === 700) {
+        let shape = {};
+        shape['shape'] = shape;
+        shape['color'] = randomColor;
+        shape['y'] = dropping;
+        shape['x'] = halfBoard;
+        postions.z1.push(shape);
+        console.log(postions.z1);
       }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
@@ -426,6 +473,15 @@ function draw(){
       if (dropping < 675) {
         dropping += 1;
       }
+      else if (dropping === 700) {
+        let shape = {};
+        shape['shape'] = shape;
+        shape['color'] = randomColor;
+        shape['y'] = dropping;
+        shape['x'] = halfBoard;
+        postions.z2.push(shape);
+        console.log(postions.z2);
+      }
       ctx.beginPath();
       ctx.moveTo(25 + halfBoard, 0 + dropping);
       ctx.lineTo(50 + halfBoard, 0 + dropping);
@@ -443,6 +499,15 @@ function draw(){
       if (dropping < 675) {
         dropping += 1;
       }
+      else if (dropping === 700) {
+        let shape = {};
+        shape['shape'] = shape;
+        shape['color'] = randomColor;
+        shape['y'] = dropping;
+        shape['x'] = halfBoard;
+        postions.l1.push(shape);
+        console.log(postions.l1);
+      }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
       ctx.lineTo(25 + halfBoard, 0 + dropping);
@@ -457,6 +522,15 @@ function draw(){
     case "l25": {
       if (dropping < 700) {
         dropping += 1;
+      }
+      else if (dropping === 700) {
+        let shape = {};
+        shape['shape'] = shape;
+        shape['color'] = randomColor;
+        shape['y'] = dropping;
+        shape['x'] = halfBoard;
+        postions.l25.push(shape);
+        console.log(postions.l25);
       }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
@@ -473,6 +547,15 @@ function draw(){
       if (dropping < 675) {
         dropping += 1;
       }
+      else if (dropping === 700) {
+        let shape = {};
+        shape['shape'] = shape;
+        shape['color'] = randomColor;
+        shape['y'] = dropping;
+        shape['x'] = halfBoard;
+        postions.l50.push(shape);
+        console.log(postions.l50);
+      }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
       ctx.lineTo(50 + halfBoard, 0 + dropping);
@@ -488,6 +571,15 @@ function draw(){
       if (dropping < 700) {
         dropping += 1;
       }
+      else if (dropping === 700) {
+        let shape = {};
+        shape['shape'] = shape;
+        shape['color'] = randomColor;
+        shape['y'] = dropping;
+        shape['x'] = halfBoard;
+        postions.l75.push(shape);
+        console.log(postions.l75);
+      }
       ctx.beginPath();
       ctx.moveTo(50 + halfBoard, 0 + dropping);
       ctx.lineTo(75 + halfBoard, 0 + dropping);
@@ -502,6 +594,15 @@ function draw(){
     case "j1": {
       if (dropping < 675) {
         dropping += 1;
+      }
+      else if (dropping === 700) {
+        let shape = {};
+        shape['shape'] = shape;
+        shape['color'] = randomColor;
+        shape['y'] = dropping;
+        shape['x'] = halfBoard;
+        postions.j1.push(shape);
+        console.log(postions.j1);
       }
       ctx.beginPath();
       ctx.moveTo(25 + halfBoard, 0 + dropping);
@@ -519,6 +620,15 @@ function draw(){
       if (dropping < 700) {
         dropping += 1;
       }
+      else if (dropping === 700) {
+        let shape = {};
+        shape['shape'] = shape;
+        shape['color'] = randomColor;
+        shape['y'] = dropping;
+        shape['x'] = halfBoard;
+        postions.j25.push(shape);
+        console.log(postions.j25);
+      }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
       ctx.lineTo(25 + halfBoard, 0 + dropping);
@@ -533,6 +643,15 @@ function draw(){
     case "j50": {
       if (dropping < 675) {
         dropping += 1;
+      }
+      else if (dropping === 700) {
+        let shape = {};
+        shape['shape'] = shape;
+        shape['color'] = randomColor;
+        shape['y'] = dropping;
+        shape['x'] = halfBoard;
+        postions.j50.push(shape);
+        console.log(postions.j50);
       }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
@@ -549,6 +668,15 @@ function draw(){
       if (dropping < 700) {
         dropping += 1;
       }
+      else if (dropping === 700) {
+        let shape = {};
+        shape['shape'] = shape;
+        shape['color'] = randomColor;
+        shape['y'] = dropping;
+        shape['x'] = halfBoard;
+        postions.j75.push(shape);
+        console.log(postions.j75);
+      }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
       ctx.lineTo(75 + halfBoard, 0 + dropping);
@@ -563,6 +691,15 @@ function draw(){
     case "t1": {
       if (dropping < 700) {
         dropping += 1;
+      }
+      else if (dropping === 700) {
+        let shape = {};
+        shape['shape'] = shape;
+        shape['color'] = randomColor;
+        shape['y'] = dropping;
+        shape['x'] = halfBoard;
+        postions.t1.push(shape);
+        console.log(postions.t1);
       }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
@@ -581,6 +718,15 @@ function draw(){
       if (dropping < 675) {
         dropping += 1;
       }
+      else if (dropping === 700) {
+        let shape = {};
+        shape['shape'] = shape;
+        shape['color'] = randomColor;
+        shape['y'] = dropping;
+        shape['x'] = halfBoard;
+        postions.t25.push(shape);
+        console.log(postions.t25);
+      }
       ctx.beginPath();
       ctx.moveTo(25 + halfBoard, 0 + dropping);
       ctx.lineTo(50 + halfBoard, 0 + dropping);
@@ -598,6 +744,15 @@ function draw(){
       if (dropping < 700) {
         dropping += 1;
       }
+      else if (dropping === 700) {
+        let shape = {};
+        shape['shape'] = shape;
+        shape['color'] = randomColor;
+        shape['y'] = dropping;
+        shape['x'] = halfBoard;
+        postions.t50.push(shape);
+        console.log(postions.t50);
+      }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 25 + dropping);
       ctx.lineTo(25 + halfBoard, 25 + dropping);
@@ -614,6 +769,15 @@ function draw(){
     case "t75": {
       if (dropping < 675) {
         dropping += 1;
+      }
+      else if (dropping === 700) {
+        let shape = {};
+        shape['shape'] = shape;
+        shape['color'] = randomColor;
+        shape['y'] = dropping;
+        shape['x'] = halfBoard;
+        postions.t75.push(shape);
+        console.log(postions.t75);
       }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
