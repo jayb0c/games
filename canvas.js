@@ -316,7 +316,7 @@ setInterval(() => {
 
 
 let dropping = 0;
-let shape = 't75';
+let shape = 'o1';
 let randomColor = '#F2EEAE';
 let colorIndex = 1;
 
@@ -337,14 +337,6 @@ function draw(){
   switch (shape) {
     case "o1": {
       if(dropping < 700){
-        dropping += 1;
-      }
-      ctx.fillStyle = randomColor;
-      ctx.fillRect(0 + halfBoard, 0 + dropping, 50, 50);
-      break;
-    }
-    case "o2": {
-      if (dropping < 700) {
         dropping += 1;
       }
       ctx.fillStyle = randomColor;
