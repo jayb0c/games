@@ -301,9 +301,12 @@ ctx.fill();
 
 /* Step 1: there is a function with switches and each shape will be a switch. There will be an array with each shape name and it will be randomly generated. The variable will be used to select the shape. */
 
+/* Step 2: there needs to be a log book created which keeps track of all of the pieces locations. Whenever a new piece is dropped from the top, the array needs to be looped through and each piece needs to be re-placed on the screen.
+*/
 
 //On each function call, grab one of these randomly
 const shapeArray = ['o1', 'o2', 'i1', 'i2', 's1', 's2', 'z1', 'z2', 'l1', 'l25', 'l50', 'l75', 'j1', 'j25', 'j50', 'j75', 't1', 't25', 't50', 't75'];
+const colorPallete = ['#F2EEAE', '#F2DF7E', '#F2BC79','#F26E50', '#36D97D'];
 const canvas = document.getElementById("canvas");
 
 
@@ -314,49 +317,60 @@ setInterval(() => {
 
 let dropping = 0;
 let shape = 'o1';
-let randomColor = '#FF4323';
+let randomColor = '#F2EEAE';
+let colorIndex = 1;
 
 function draw(){
-  console.log(dropping);
   if(dropping >= 699){
-    dropping = 0;
-    shape = shapeArray[Math.floor(Math.random() * shapeArray.length)];
-    randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+    //dropping = 699;
+    //shape = shapeArray[Math.floor(Math.random() * shapeArray.length)];
+    randomColor = colorPallete[colorIndex];
+    colorIndex++;
   }
 
   let halfBoard = 250; //sets pieces in middle of board. Will be used to move x axis.
-  dropping += 1;
 
+  console.log(dropping);
   let ctx = canvas.getContext("2d");
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   switch (shape) {
     case "o1": {
-      if (dropping === 700) { dropping = 0 };
+      if(dropping < 700){
+        dropping += 1;
+      }
       ctx.fillStyle = randomColor;
       ctx.fillRect(0 + halfBoard, 0 + dropping, 50, 50);
       break;
     }
     case "o2": {
-      if (dropping === 700) { dropping = 0 };
+      if (dropping < 700) {
+        dropping += 1;
+      }
       ctx.fillStyle = randomColor;
       ctx.fillRect(0 + halfBoard, 0 + dropping, 50, 50);
       break;
     }
     case "i1": {
-      if (dropping === 700) { dropping = 0 };
+      if (dropping < 700) {
+        dropping += 1;
+      }
       ctx.fillStyle = randomColor;
       ctx.fillRect(halfBoard, 0 + dropping, 25, 100);
       break;
     }
     case "i2": {
-      if (dropping === 700) { dropping = 0 };
+      if (dropping < 700) {
+        dropping += 1;
+      }
       ctx.fillStyle = randomColor;
       ctx.fillRect(halfBoard, 0 + dropping, 100, 25);
       break;
     }
     case "s1": {
-      if (dropping === 700) { dropping = 0 };
+      if (dropping < 700) {
+        dropping += 1;
+      }
       ctx.beginPath();
       ctx.moveTo(25 + halfBoard, 0 + dropping);
       ctx.lineTo(75 + halfBoard, 0 + dropping);
@@ -373,7 +387,9 @@ function draw(){
       break;
     }
     case "s2": {
-      if (dropping === 700) { dropping = 0 };
+      if (dropping < 700) {
+        dropping += 1;
+      }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
       ctx.lineTo(25 + halfBoard, 0 + dropping);
@@ -388,7 +404,9 @@ function draw(){
       break;
     }
     case "z1": {
-      if (dropping === 700) { dropping = 0 };
+      if (dropping < 700) {
+        dropping += 1;
+      }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
       ctx.lineTo(50 + halfBoard, 0 + dropping);
@@ -403,7 +421,9 @@ function draw(){
       break;
     }
     case "z2": {
-      if (dropping === 700) { dropping = 0 };
+      if (dropping < 700) {
+        dropping += 1;
+      }
       ctx.beginPath();
       ctx.moveTo(25 + halfBoard, 0 + dropping);
       ctx.lineTo(50 + halfBoard, 0 + dropping);
@@ -418,7 +438,9 @@ function draw(){
       break;
     }
     case "l1": {
-      if (dropping === 700) { dropping = 0 };
+      if (dropping < 700) {
+        dropping += 1;
+      }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
       ctx.lineTo(25 + halfBoard, 0 + dropping);
@@ -431,7 +453,9 @@ function draw(){
       break;
     }
     case "l25": {
-      if (dropping === 700) { dropping = 0 };
+      if (dropping < 700) {
+        dropping += 1;
+      }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
       ctx.lineTo(75 + halfBoard, 0 + dropping);
@@ -444,7 +468,9 @@ function draw(){
       break;
     }
     case "l50": {
-      if (dropping === 700) { dropping = 0 };
+      if (dropping < 700) {
+        dropping += 1;
+      }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
       ctx.lineTo(50 + halfBoard, 0 + dropping);
@@ -457,7 +483,9 @@ function draw(){
       break;
     }
     case "l75": {
-      if (dropping === 700) { dropping = 0 };
+      if (dropping < 700) {
+        dropping += 1;
+      }
       ctx.beginPath();
       ctx.moveTo(50 + halfBoard, 0 + dropping);
       ctx.lineTo(75 + halfBoard, 0 + dropping);
@@ -470,7 +498,9 @@ function draw(){
       break;
     }
     case "j1": {
-      if (dropping === 700) { dropping = 0 };
+      if (dropping < 700) {
+        dropping += 1;
+      }
       ctx.beginPath();
       ctx.moveTo(25 + halfBoard, 0 + dropping);
       ctx.lineTo(50 + halfBoard, 0 + dropping);
@@ -484,7 +514,9 @@ function draw(){
       break;
     }
     case "j25": {
-      if (dropping === 700) { dropping = 0 };
+      if (dropping < 700) {
+        dropping += 1;
+      }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
       ctx.lineTo(25 + halfBoard, 0 + dropping);
@@ -497,7 +529,9 @@ function draw(){
       break;
     }
     case "j50": {
-      if (dropping === 700) { dropping = 0 };
+      if (dropping < 700) {
+        dropping += 1;
+      }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
       ctx.lineTo(50 + halfBoard, 0 + dropping);
@@ -510,7 +544,9 @@ function draw(){
       break;
     }
     case "j75": {
-      if (dropping === 700) { dropping = 0 };
+      if (dropping < 700) {
+        dropping += 1;
+      }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
       ctx.lineTo(75 + halfBoard, 0 + dropping);
@@ -523,7 +559,9 @@ function draw(){
       break;
     }
     case "t1": {
-      if (dropping === 700) { dropping = 0 };
+      if (dropping < 700) {
+        dropping += 1;
+      }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
       ctx.lineTo(75 + halfBoard, 0 + dropping);
@@ -538,7 +576,9 @@ function draw(){
       break;
     }
     case "t25": {
-      if (dropping === 700) { dropping = 0 };
+      if (dropping < 700) {
+        dropping += 1;
+      }
       ctx.beginPath();
       ctx.moveTo(25 + halfBoard, 0 + dropping);
       ctx.lineTo(50 + halfBoard, 0 + dropping);
@@ -553,7 +593,9 @@ function draw(){
       break;
     }
     case "t50": {
-      if (dropping === 700) { dropping = 0 };
+      if (dropping < 700) {
+        dropping += 1;
+      }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 25 + dropping);
       ctx.lineTo(25 + halfBoard, 25 + dropping);
@@ -568,7 +610,9 @@ function draw(){
       break;
     }
     case "t75": {
-      if (dropping === 700) { dropping = 0 };
+      if (dropping < 700) {
+        dropping += 1;
+      }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
       ctx.lineTo(25 + halfBoard, 0 + dropping);
