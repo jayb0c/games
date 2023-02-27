@@ -316,7 +316,7 @@ setInterval(() => {
 
 
 let dropping = 0;
-let shape = 'o1';
+let shape = 't75';
 let randomColor = '#F2EEAE';
 let colorIndex = 1;
 
@@ -352,7 +352,7 @@ function draw(){
       break;
     }
     case "i1": {
-      if (dropping < 700) {
+      if (dropping < 650) {
         dropping += 1;
       }
       ctx.fillStyle = randomColor;
@@ -360,7 +360,7 @@ function draw(){
       break;
     }
     case "i2": {
-      if (dropping < 700) {
+      if (dropping < 725) {
         dropping += 1;
       }
       ctx.fillStyle = randomColor;
@@ -387,7 +387,7 @@ function draw(){
       break;
     }
     case "s2": {
-      if (dropping < 700) {
+      if (dropping < 675) {
         dropping += 1;
       }
       ctx.beginPath();
@@ -421,7 +421,7 @@ function draw(){
       break;
     }
     case "z2": {
-      if (dropping < 700) {
+      if (dropping < 675) {
         dropping += 1;
       }
       ctx.beginPath();
@@ -438,7 +438,7 @@ function draw(){
       break;
     }
     case "l1": {
-      if (dropping < 700) {
+      if (dropping < 675) {
         dropping += 1;
       }
       ctx.beginPath();
@@ -468,7 +468,7 @@ function draw(){
       break;
     }
     case "l50": {
-      if (dropping < 700) {
+      if (dropping < 675) {
         dropping += 1;
       }
       ctx.beginPath();
@@ -498,7 +498,7 @@ function draw(){
       break;
     }
     case "j1": {
-      if (dropping < 700) {
+      if (dropping < 675) {
         dropping += 1;
       }
       ctx.beginPath();
@@ -529,7 +529,7 @@ function draw(){
       break;
     }
     case "j50": {
-      if (dropping < 700) {
+      if (dropping < 675) {
         dropping += 1;
       }
       ctx.beginPath();
@@ -576,7 +576,7 @@ function draw(){
       break;
     }
     case "t25": {
-      if (dropping < 700) {
+      if (dropping < 675) {
         dropping += 1;
       }
       ctx.beginPath();
@@ -610,7 +610,7 @@ function draw(){
       break;
     }
     case "t75": {
-      if (dropping < 700) {
+      if (dropping < 675) {
         dropping += 1;
       }
       ctx.beginPath();
