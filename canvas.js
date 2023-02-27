@@ -305,13 +305,17 @@ ctx.fill();
 */
 
 //On each function call, grab one of these randomly
+console.log(postions, 'map');
 const shapeArray = ['o1', 'o2', 'i1', 'i2', 's1', 's2', 'z1', 'z2', 'l1', 'l25', 'l50', 'l75', 'j1', 'j25', 'j50', 'j75', 't1', 't25', 't50', 't75'];
 const colorPallete = ['#F2EEAE', '#F2DF7E', '#F2BC79','#F26E50', '#36D97D'];
 const canvas = document.getElementById("canvas");
+let drawTimes = 0;
 
 
 setInterval(() => {
+  if(drawTimes > 700){return};
   draw();
+  drawTimes++;
 }, 10);
 
 
@@ -338,6 +342,12 @@ function draw(){
     case "o1": {
       if(dropping < 700){
         dropping += 1;
+      } else if (dropping === 700) {
+        let shape = {};
+        shape['color'] = randomColor;
+        shape['dropping'] = dropping;
+        postions.o1.push(shape);
+        console.log(postions.o1);
       }
       ctx.fillStyle = randomColor;
       ctx.fillRect(0 + halfBoard, 0 + dropping, 50, 50);

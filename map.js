@@ -1,5 +1,6 @@
-console.log('map');
+
 const postions = {
+  "o1": [],
   "i1": [],
   "i2": [],
   "s1": [],
