@@ -20,14 +20,11 @@ main{
     font-style: normal;
 }
 canvas{
+  box-shadow: rgba(167, 221, 242, 0.35) 0px 5px 15px;
   display: flex;
   position: relative;
   justify-content: center;
   width:600px;
   height: 750px;
-  border-width: 4px;
-  border-style: solid;
-  border-image: linear-gradient(to bottom, white, #F26E50) 1;
-  border-top: none;
   margin-bottom: 30px ;
 }
