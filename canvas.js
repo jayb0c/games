@@ -5,8 +5,9 @@
 /* Step 2: there needs to be a log book created which keeps track of all of the pieces locations. Whenever a new piece is dropped from the top, the array needs to be looped through and each piece needs to be re-placed on the screen.
 */
 
+const positions = [];
 //On each function call, grab one of these randomly
-console.log(postions, 'map');
+var local = localStorage.getItem('positions');
 const shapeArray = ['o1', 'o2', 'i1', 'i2', 's1', 's2', 'z1', 'z2', 'l1', 'l25', 'l50', 'l75', 'j1', 'j25', 'j50', 'j75', 't1', 't25', 't50', 't75'];
 const colorPallete = ['#C7FFED', '#D8FFDB', '#008F8C', '#015958', '#023535'];
 const canvas = document.getElementById("canvas");
@@ -34,28 +35,28 @@ function draw(){
     colorIndex++;
   }
 
-  console.log(dropping);
   let ctx = canvas.getContext("2d");
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  switch (shape) {
-    case "o1": {
+
+
+  // Jacob, set some type of parameter for resetting the board vs placing new pieces. Use the obj
+  //to place rest pieces vs drawing fresh pieces when it's not being reset.
+  function placeShape(){
+    if (shape === 'o1') {
       if(dropping < 700){
         dropping += 1;
       } else if (dropping === 700) {
-        let shape = {};
-        shape['shape'] = shape;
-        shape['color'] = randomColor;
-        shape['y'] = dropping;
-        shape['x'] = halfBoard;
-        postions.o1.push(shape);
-        console.log(postions.o1);
+        let place = {};
+        place['shape'] = shape;
+        place['color'] = randomColor;
+        place['y'] = dropping;
+        place['x'] = halfBoard;
+        positions.push(place);
       }
       ctx.fillStyle = randomColor;
       ctx.fillRect(0 + halfBoard, 0 + dropping, 50, 50);
-      break;
-    }
-    case "i1": {
+    } else if (shape === 'i1'){
       if (dropping < 650) {
         dropping += 1;
       }
@@ -70,9 +71,7 @@ function draw(){
       }
       ctx.fillStyle = randomColor;
       ctx.fillRect(halfBoard, 0 + dropping, 25, 100);
-      break;
-    }
-    case "i2": {
+    } else if (shape === 'i2') {
       if (dropping < 725) {
         dropping += 1;
       }
@@ -87,9 +86,7 @@ function draw(){
       }
       ctx.fillStyle = randomColor;
       ctx.fillRect(halfBoard, 0 + dropping, 100, 25);
-      break;
-    }
-    case "s1": {
+    } else if (shape === 's1') {
       if (dropping < 700) {
         dropping += 1;
       }
@@ -115,9 +112,7 @@ function draw(){
       ctx.lineTo(25 + halfBoard, 25 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
-      break;
-    }
-    case "s2": {
+    } else if (shape === 's2') {
       if (dropping < 675) {
         dropping += 1;
       }
@@ -141,9 +136,7 @@ function draw(){
       ctx.lineTo(0 + halfBoard, 50 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
-      break;
-    }
-    case "z1": {
+    } else if (shape === 'z1') {
       if (dropping < 700) {
         dropping += 1;
       }
@@ -167,9 +160,7 @@ function draw(){
       ctx.lineTo(0 + halfBoard, 25 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
-      break;
-    }
-    case "z2": {
+    } else if (shape === 'z2'){
       if (dropping < 675) {
         dropping += 1;
       }
@@ -193,9 +184,7 @@ function draw(){
       ctx.lineTo(25 + halfBoard, 25 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
-      break;
-    }
-    case "l1": {
+    } else if (shape === 'l1') {
       if (dropping < 675) {
         dropping += 1;
       }
@@ -217,9 +206,7 @@ function draw(){
       ctx.lineTo(0 + halfBoard, 75 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
-      break;
-    }
-    case "l25": {
+    } else if (shape === 'l25') {
       if (dropping < 700) {
         dropping += 1;
       }
@@ -241,9 +228,7 @@ function draw(){
       ctx.lineTo(0 + halfBoard, 50 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
-      break;
-    }
-    case "l50": {
+    } else if(shape === 'l50') {
       if (dropping < 675) {
         dropping += 1;
       }
@@ -265,9 +250,7 @@ function draw(){
       ctx.lineTo(0 + halfBoard, 25 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
-      break;
-    }
-    case "l75": {
+    } else if(shape === 'l75') {
       if (dropping < 700) {
         dropping += 1;
       }
@@ -289,9 +272,7 @@ function draw(){
       ctx.lineTo(50 + halfBoard, 25 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
-      break;
-    }
-    case "j1": {
+    } else if (shape === 'j1'){
       if (dropping < 675) {
         dropping += 1;
       }
@@ -314,9 +295,7 @@ function draw(){
       ctx.lineTo(25 + halfBoard, 50 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
-      break;
-    }
-    case "j25": {
+    } else if (shape === 'j25') {
       if (dropping < 700) {
         dropping += 1;
       }
@@ -338,9 +317,7 @@ function draw(){
       ctx.lineTo(0 + halfBoard, 50 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
-      break;
-    }
-    case "j50": {
+    } else if (shape === 'j50') {
       if (dropping < 675) {
         dropping += 1;
       }
@@ -362,9 +339,7 @@ function draw(){
       ctx.lineTo(0 + halfBoard, 75 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
-      break;
-    }
-    case "j75": {
+    } else if (shape === 'j75') {
       if (dropping < 700) {
         dropping += 1;
       }
@@ -386,9 +361,7 @@ function draw(){
       ctx.lineTo(0 + halfBoard, 25 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
-      break;
-    }
-    case "t1": {
+    } else if (shape === 't1') {
       if (dropping < 700) {
         dropping += 1;
       }
@@ -412,9 +385,7 @@ function draw(){
       ctx.lineTo(0 + halfBoard, 25 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
-      break;
-    }
-    case "t25": {
+    } else if (shape === 't25') {
       if (dropping < 675) {
         dropping += 1;
       }
@@ -438,9 +409,7 @@ function draw(){
       ctx.lineTo(25 + halfBoard, 25 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
-      break;
-    }
-    case "t50": {
+    } else if (shape === 't50') {
       if (dropping < 700) {
         dropping += 1;
       }
@@ -464,9 +433,7 @@ function draw(){
       ctx.lineTo(0 + halfBoard, 50 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
-      break;
-    }
-    case "t75": {
+    } else if (shape === 't75') {
       if (dropping < 675) {
         dropping += 1;
       }
@@ -490,20 +457,17 @@ function draw(){
       ctx.lineTo(0 + halfBoard, 75 + dropping);
       ctx.fillStyle = randomColor;
       ctx.fill();
-      break;
-    }
-    default: {
+    } else {
       console.log("Empty action received.");
     }
   }
-
+  placeShape();
 }
 
 
 /* Key movement, X-axis */
 
 document.addEventListener("keydown", (event) => {
-  console.log(event.keyCode);
   if(event.keyCode === 39){
   halfBoard+=5;
   } else if (event.keyCode === 37) {
