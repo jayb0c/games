@@ -24,6 +24,7 @@ let dropping = 0;
 let shape = 'o1';
 let randomColor = '#F2EEAE';
 let colorIndex = 1;
+let halfBoard = 250;
 
 function draw(){
   if(dropping >= 699){
@@ -32,8 +33,6 @@ function draw(){
     randomColor = colorPallete[colorIndex];
     colorIndex++;
   }
-
-  let halfBoard = 250; //sets pieces in middle of board. Will be used to move x axis.
 
   console.log(dropping);
   let ctx = canvas.getContext("2d");
@@ -499,3 +498,15 @@ function draw(){
   }
 
 }
+
+
+/* Key movement, X-axis */
+
+document.addEventListener("keydown", (event) => {
+  console.log(event.keyCode);
+  if(event.keyCode === 39){
+  halfBoard+=5;
+  } else if (event.keyCode === 37) {
+  halfBoard-=5;
+  }
+});
