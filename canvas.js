@@ -43,6 +43,12 @@ function draw(){
   // Jacob, set some type of parameter for resetting the board vs placing new pieces. Use the obj
   //to place rest pieces vs drawing fresh pieces when it's not being reset.
   function placeShape(){
+    if(halfBoard > 550){
+      halfBoard = 550;
+    }
+    if(halfBoard < 0){
+      halfBoard = 0;
+    }
     if (shape === 'o1') {
       if(dropping < 700){
         dropping += 1;
@@ -466,11 +472,11 @@ function draw(){
 
 
 /* Key movement, X-axis */
+var edgeToggle = false;
 
 document.addEventListener("keydown", (event) => {
-  console.log(halfBoard);
   if(halfBoard < 0){
-     halfBoard = 0;
+    halfBoard = 0;
     } else if (halfBoard > 550) {
     halfBoard = 550;
   } else {
