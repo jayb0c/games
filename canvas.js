@@ -22,10 +22,10 @@ setInterval(() => {
 
 
 let dropping = 0;
-let shape = 'o1';
+let shape = 'i2';
 let randomColor = '#F2EEAE';
 let colorIndex = 1;
-let halfBoard = 250;
+let halfBoard = 0;
 
 function draw(){
   if(dropping >= 699){
@@ -44,13 +44,17 @@ function draw(){
   //to place rest pieces vs drawing fresh pieces when it's not being reset.
   function placeShape(){
     if(halfBoard > 550){
-      halfBoard = 550;
+      if (shape === 'i2' || shape === 'z2' || shape === 's2' || shape === 'l25' || shape === 'l75' || shape === 'j25' || shape === 'j75'){
+        halfBoard = 500;
+      } else{
+        halfBoard = 550;
+      }
     }
     if(halfBoard < 0){
       halfBoard = 0;
     }
     if (shape === 'o1') {
-      if(dropping < 700){
+      if(dropping < 750){
         dropping += 1;
       } else if (dropping === 700) {
         let place = {};
@@ -78,10 +82,12 @@ function draw(){
       ctx.fillStyle = randomColor;
       ctx.fillRect(halfBoard, 0 + dropping, 25, 100);
     } else if (shape === 'i2') {
-      if (dropping < 725) {
+      if (dropping < 750) {
+        console.log(dropping);
         dropping += 1;
       }
-      else if (dropping === 700) {
+      else if (dropping === 750) {
+        console.log(dropping);
         let shape = {};
         shape['shape'] = shape;
         shape['color'] = randomColor;
@@ -472,17 +478,23 @@ function draw(){
 
 
 /* Key movement, X-axis */
-var edgeToggle = false;
 
 document.addEventListener("keydown", (event) => {
+  console.log(halfBoard);
   if(halfBoard < 0){
     halfBoard = 0;
-    } else if (halfBoard > 550) {
-    halfBoard = 550;
+    } else if (halfBoard > 550 || halfBoard > 500) {
+    if (shape === 'i2' || shape === 'z2' || shape === 's2' || shape === 'l25' || shape === 'l75' || shape === 'j25' || shape === 'j75') {
+      halfBoard = 500;
+    } else if(shape === 'i2') {
+      halfBoard = 550;
+    }
   } else {
     if (event.keyCode === 39) {
-      if (shape === 'i2' || shape === 'z2' || shape === 's2' || shape === 'l25' || shape === 'l75' || shape === 'j25' || shape === 'j75') {
+      if (shape === 'z2' || shape === 's2' || shape === 'l25' || shape === 'l75' || shape === 'j25' || shape === 'j75') {
         halfBoard += 75;
+      } else if (shape === 'i2'){
+        halfBoard += 100;
       } else {
         halfBoard += 50;
       }
