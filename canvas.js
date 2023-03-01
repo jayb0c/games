@@ -305,7 +305,7 @@ function draw(){
         shape['color'] = randomColor;
         shape['y'] = dropping;
         shape['x'] = halfBoard;
-        postions.j25.push(shape);
+        positions.j25.push(shape);
         console.log(postions.j25);
       }
       ctx.beginPath();
@@ -468,9 +468,25 @@ function draw(){
 /* Key movement, X-axis */
 
 document.addEventListener("keydown", (event) => {
-  if(event.keyCode === 39){
-  halfBoard+=5;
-  } else if (event.keyCode === 37) {
-  halfBoard-=5;
+  console.log(halfBoard);
+  if(halfBoard < 0){
+     halfBoard = 0;
+    } else if (halfBoard > 550) {
+    halfBoard = 550;
+  } else {
+    if (event.keyCode === 39) {
+      if (shape === 'i2' || shape === 'z2' || shape === 's2' || shape === 'l25' || shape === 'l75' || shape === 'j25' || shape === 'j75') {
+        halfBoard += 75;
+      } else {
+        halfBoard += 50;
+      }
+    } else if (event.keyCode === 37) {
+      if (shape === 'i2' || shape === 'z2' || shape === 's2' || shape === 'l25' || shape === 'l75' || shape === 'j25' || shape === 'j75') {
+        halfBoard -= 75;
+      } else {
+        halfBoard -= 50;
+      }
+    }
   }
+
 });
