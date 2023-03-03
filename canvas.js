@@ -20,8 +20,8 @@ function draw(){
 
   if (shapeSwitch === true) {
     clearInterval(myInterval);
-    randomColor = colorPallete[colorIndex];
-    colorIndex++;
+    //randomColor = colorPallete[colorIndex];
+    //colorIndex++;
   }
 
   let ctx = canvas.getContext("2d");
@@ -468,11 +468,10 @@ function draw(){
 /* Key movement, X-axis */
 
 document.addEventListener("keydown", (event) => {
-  console.log(halfBoard);
   if(halfBoard < 0){
     halfBoard = 0;
     } else if (halfBoard > 550 || halfBoard > 500) {
-    if (shape === 'i2' || shape === 'z2' || shape === 's2' || shape === 'l25' || shape === 'l75' || shape === 'j25' || shape === 'j75') {
+    if (shape === 'o1' || shape === 'i2' || shape === 'z2' || shape === 's2' || shape === 'l25' || shape === 'l75' || shape === 'j25' || shape === 'j75') {
       halfBoard = 500;
     } else if(shape === 'i2') {
       halfBoard = 550;
