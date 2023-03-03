@@ -494,13 +494,17 @@ document.addEventListener("keydown", (event) => {
       if (shape === 'z2' || shape === 's2' || shape === 'l25' || shape === 'l75' || shape === 'j25' || shape === 'j75') {
         halfBoard += 75;
       } else if (shape === 'i2'){
+        console.log(halfBoard);
         halfBoard += 100;
       } else {
         halfBoard += 50;
       }
     } else if (event.keyCode === 37) {
-      if (shape === 'i2' || shape === 'z2' || shape === 's2' || shape === 'l25' || shape === 'l75' || shape === 'j25' || shape === 'j75') {
+      if (shape === 'z2' || shape === 's2' || shape === 'l25' || shape === 'l75' || shape === 'j25' || shape === 'j75') {
         halfBoard -= 75;
+      } else if (shape === 'i2') {
+        console.log(halfBoard);
+        halfBoard -= 100;
       } else {
         halfBoard -= 50;
       }
