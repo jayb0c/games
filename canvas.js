@@ -1,13 +1,6 @@
-// ------ PSUEDO CODE BELOW ------------
-
-/* Step 1: there is a function with switches and each shape will be a switch. There will be an array with each shape name and it will be randomly generated. The variable will be used to select the shape. */
-
-/* Step 2: there needs to be a log book created which keeps track of all of the pieces locations. Whenever a new piece is dropped from the top, the array needs to be looped through and each piece needs to be re-placed on the screen.
-*/
+// ------ TETRIS ------------
 
 const positions = [];
-//On each function call, grab one of these randomly
-var local = localStorage.getItem('positions');
 const shapeArray = ['o1', 'o2', 'i1', 'i2', 's1', 's2', 'z1', 'z2', 'l1', 'l25', 'l50', 'l75', 'j1', 'j25', 'j50', 'j75', 't1', 't25', 't50', 't75'];
 const colorPallete = ['#C7FFED', '#D8FFDB', '#008F8C', '#015958', '#023535'];
 const canvas = document.getElementById("canvas");
@@ -17,7 +10,7 @@ const myInterval = setInterval(draw, 10);
 
 
 let dropping = 0;
-let shape = 'l50';
+let shape = 'o1';
 let randomColor = '#F2EEAE';
 let colorIndex = 1;
 let halfBoard = 0;
@@ -26,7 +19,6 @@ let shapeSwitch = false;
 function draw(){
 
   if (shapeSwitch === true) {
-    console.log('end');
     clearInterval(myInterval);
     randomColor = colorPallete[colorIndex];
     colorIndex++;
@@ -34,8 +26,6 @@ function draw(){
 
   let ctx = canvas.getContext("2d");
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-
 
   // Jacob, set some type of parameter for resetting the board vs placing new pieces. Use the obj
   //to place rest pieces vs drawing fresh pieces when it's not being reset.
@@ -51,11 +41,24 @@ function draw(){
       halfBoard = 0;
     }
     if (shape === 'o1') {
-      if (dropping === 700) { shapeSwitch = true};
-      if(dropping < 750){
+      if (dropping === 700) {
+        shapeSwitch = true;
+        let place = {};
+        place['shape'] = shape;
+        place['color'] = randomColor;
+        place['y'] = dropping;
+        place['x'] = halfBoard;
+        positions.push(place);
+        console.log(positions);
+      }
+      if (dropping < 700){
         dropping += 1;
-      } else if (dropping === 700) {
-        console.log(dropping + '3');
+      }
+      ctx.fillStyle = randomColor;
+      ctx.fillRect(0 + halfBoard, 0 + dropping, 50, 50);
+    } else if (shape === 'i1'){
+      if (dropping === 650) {
+        shapeSwitch = true;
         let place = {};
         place['shape'] = shape;
         place['color'] = randomColor;
@@ -63,54 +66,38 @@ function draw(){
         place['x'] = halfBoard;
         positions.push(place);
       }
-      ctx.fillStyle = randomColor;
-      ctx.fillRect(0 + halfBoard, 0 + dropping, 50, 50);
-    } else if (shape === 'i1'){
-      if (dropping === 650) { shapeSwitch = true };
       if (dropping < 650) {
         dropping += 1;
-      }
-      else if (dropping === 650) {
-        let shape = {};
-        shape['shape'] = shape;
-        shape['color'] = randomColor;
-        shape['y'] = dropping;
-        shape['x'] = halfBoard;
-        postions.i1.push(shape);
-        console.log(postions.i1);
       }
       ctx.fillStyle = randomColor;
       ctx.fillRect(halfBoard, 0 + dropping, 25, 100);
     } else if (shape === 'i2') {
-      if (dropping === 725) { shapeSwitch = true };
+      if (dropping === 725) {
+        shapeSwitch = true
+        let place = {};
+        place['shape'] = shape;
+        place['color'] = randomColor;
+        place['y'] = dropping;
+        place['x'] = halfBoard;
+        positions.push(place);
+      }
       if (dropping < 725) {
         dropping += 1;
-      }
-      else if (dropping === 725) {
-        console.log(dropping);
-        let shape = {};
-        shape['shape'] = shape;
-        shape['color'] = randomColor;
-        shape['y'] = dropping;
-        shape['x'] = halfBoard;
-        postions.i2.push(shape);
-        console.log(postions.i2);
       }
       ctx.fillStyle = randomColor;
       ctx.fillRect(halfBoard, 0 + dropping, 100, 25);
     } else if (shape === 's1') {
-      if (dropping === 700) { shapeSwitch = true };
+      if (dropping === 700) {
+        shapeSwitch = true;
+        let place = {};
+        place['shape'] = shape;
+        place['color'] = randomColor;
+        place['y'] = dropping;
+        place['x'] = halfBoard;
+        positions.push(place);
+      }
       if (dropping < 700) {
         dropping += 1;
-      }
-      else if (dropping === 700) {
-        let shape = {};
-        shape['shape'] = shape;
-        shape['color'] = randomColor;
-        shape['y'] = dropping;
-        shape['x'] = halfBoard;
-        postions.s1.push(shape);
-        console.log(postions.s1);
       }
       ctx.beginPath();
       ctx.moveTo(25 + halfBoard, 0 + dropping);
@@ -126,18 +113,17 @@ function draw(){
       ctx.fillStyle = randomColor;
       ctx.fill();
     } else if (shape === 's2') {
-      if (dropping === 675) { shapeSwitch = true };
+      if (dropping === 675) {
+        shapeSwitch = true;
+        let place = {};
+        place['shape'] = shape;
+        place['color'] = randomColor;
+        place['y'] = dropping;
+        place['x'] = halfBoard;
+        postions.push(place);
+      }
       if (dropping < 675) {
         dropping += 1;
-      }
-      else if (dropping === 675) {
-        let shape = {};
-        shape['shape'] = shape;
-        shape['color'] = randomColor;
-        shape['y'] = dropping;
-        shape['x'] = halfBoard;
-        postions.s2.push(shape);
-        console.log(postions.s2);
       }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
@@ -151,17 +137,17 @@ function draw(){
       ctx.fillStyle = randomColor;
       ctx.fill();
     } else if (shape === 'z1') {
+      if (dropping === 700) {
+        shapeSwitch = true;
+        let place = {};
+        place['shape'] = shape;
+        place['color'] = randomColor;
+        place['y'] = dropping;
+        place['x'] = halfBoard;
+        positions.push(place);
+      }
       if (dropping < 700) {
         dropping += 1;
-      }
-      else if (dropping === 700) {
-        let shape = {};
-        shape['shape'] = shape;
-        shape['color'] = randomColor;
-        shape['y'] = dropping;
-        shape['x'] = halfBoard;
-        postions.z1.push(shape);
-        console.log(postions.z1);
       }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
@@ -175,18 +161,17 @@ function draw(){
       ctx.fillStyle = randomColor;
       ctx.fill();
     } else if (shape === 'z2'){
-      if (dropping === 675) { shapeSwitch = true };
+      if (dropping === 675) {
+        shapeSwitch = true;
+        let place = {};
+        place['shape'] = shape;
+        place['color'] = randomColor;
+        place['y'] = dropping;
+        place['x'] = halfBoard;
+        postions.push(place);
+      }
       if (dropping < 675) {
         dropping += 1;
-      }
-      else if (dropping === 675) {
-        let shape = {};
-        shape['shape'] = shape;
-        shape['color'] = randomColor;
-        shape['y'] = dropping;
-        shape['x'] = halfBoard;
-        postions.z2.push(shape);
-        console.log(postions.z2);
       }
       ctx.beginPath();
       ctx.moveTo(25 + halfBoard, 0 + dropping);
@@ -200,18 +185,17 @@ function draw(){
       ctx.fillStyle = randomColor;
       ctx.fill();
     } else if (shape === 'l1') {
-      if (dropping === 675) { shapeSwitch = true };
+      if (dropping === 675) {
+        shapeSwitch = true;
+        let place = {};
+        place['shape'] = shape;
+        place['color'] = randomColor;
+        place['y'] = dropping;
+        place['x'] = halfBoard;
+        positions.push(place);
+      }
       if (dropping < 675) {
         dropping += 1;
-      }
-      else if (dropping === 675) {
-        let shape = {};
-        shape['shape'] = shape;
-        shape['color'] = randomColor;
-        shape['y'] = dropping;
-        shape['x'] = halfBoard;
-        postions.l1.push(shape);
-        console.log(postions.l1);
       }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
@@ -223,18 +207,17 @@ function draw(){
       ctx.fillStyle = randomColor;
       ctx.fill();
     } else if (shape === 'l25') {
-      if (dropping === 700) { shapeSwitch = true };
+      if (dropping === 700) {
+        shapeSwitch = true;
+        let place = {};
+        place['shape'] = shape;
+        place['color'] = randomColor;
+        place['y'] = dropping;
+        place['x'] = halfBoard;
+        positions.push(place);
+      }
       if (dropping < 700) {
         dropping += 1;
-      }
-      else if (dropping === 700) {
-        let shape = {};
-        shape['shape'] = shape;
-        shape['color'] = randomColor;
-        shape['y'] = dropping;
-        shape['x'] = halfBoard;
-        postions.l25.push(shape);
-        console.log(postions.l25);
       }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
@@ -246,18 +229,17 @@ function draw(){
       ctx.fillStyle = randomColor;
       ctx.fill();
     } else if(shape === 'l50') {
-      if (dropping === 675) { shapeSwitch = true };
+      if (dropping === 675) {
+        shapeSwitch = true;
+        let place = {};
+        place['shape'] = shape;
+        place['color'] = randomColor;
+        place['y'] = dropping;
+        place['x'] = halfBoard;
+        positions.push(place);
+      }
       if (dropping < 675) {
         dropping += 1;
-      }
-      else if (dropping === 675) {
-        let shape = {};
-        shape['shape'] = shape;
-        shape['color'] = randomColor;
-        shape['y'] = dropping;
-        shape['x'] = halfBoard;
-        postions.l50.push(shape);
-        console.log(postions.l50);
       }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
@@ -269,18 +251,17 @@ function draw(){
       ctx.fillStyle = randomColor;
       ctx.fill();
     } else if(shape === 'l75') {
-      if (dropping === 700) { shapeSwitch = true };
+      if (dropping === 700) {
+        shapeSwitch = true;
+        let place = {};
+        place['shape'] = shape;
+        place['color'] = randomColor;
+        place['y'] = dropping;
+        place['x'] = halfBoard;
+        positions.push(place);
+      }
       if (dropping < 700) {
         dropping += 1;
-      }
-      else if (dropping === 700) {
-        let shape = {};
-        shape['shape'] = shape;
-        shape['color'] = randomColor;
-        shape['y'] = dropping;
-        shape['x'] = halfBoard;
-        postions.l75.push(shape);
-        console.log(postions.l75);
       }
       ctx.beginPath();
       ctx.moveTo(50 + halfBoard, 0 + dropping);
@@ -292,18 +273,17 @@ function draw(){
       ctx.fillStyle = randomColor;
       ctx.fill();
     } else if (shape === 'j1'){
-      if (dropping === 675) { shapeSwitch = true };
+      if (dropping === 675) {
+        shapeSwitch = true;
+        let place = {};
+        place['shape'] = shape;
+        place['color'] = randomColor;
+        place['y'] = dropping;
+        place['x'] = halfBoard;
+        positions.push(place);
+      }
       if (dropping < 675) {
         dropping += 1;
-      }
-      else if (dropping === 675) {
-        let shape = {};
-        shape['shape'] = shape;
-        shape['color'] = randomColor;
-        shape['y'] = dropping;
-        shape['x'] = halfBoard;
-        postions.j1.push(shape);
-        console.log(postions.j1);
       }
       ctx.beginPath();
       ctx.moveTo(25 + halfBoard, 0 + dropping);
@@ -316,18 +296,17 @@ function draw(){
       ctx.fillStyle = randomColor;
       ctx.fill();
     } else if (shape === 'j25') {
-      if (dropping === 700) { shapeSwitch = true };
+      if (dropping === 700) {
+        shapeSwitch = true;
+        let place = {};
+        place['shape'] = shape;
+        place['color'] = randomColor;
+        place['y'] = dropping;
+        place['x'] = halfBoard;
+        positions.push(place);
+      }
       if (dropping < 700) {
         dropping += 1;
-      }
-      else if (dropping === 700) {
-        let shape = {};
-        shape['shape'] = shape;
-        shape['color'] = randomColor;
-        shape['y'] = dropping;
-        shape['x'] = halfBoard;
-        positions.j25.push(shape);
-        console.log(postions.j25);
       }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
@@ -339,18 +318,17 @@ function draw(){
       ctx.fillStyle = randomColor;
       ctx.fill();
     } else if (shape === 'j50') {
-      if (dropping === 675) { shapeSwitch = true };
+      if (dropping === 675) {
+        shapeSwitch = true;
+        let place = {};
+        place['shape'] = shape;
+        place['color'] = randomColor;
+        place['y'] = dropping;
+        place['x'] = halfBoard;
+        positions.push(place);
+      }
       if (dropping < 675) {
         dropping += 1;
-      }
-      else if (dropping === 675) {
-        let shape = {};
-        shape['shape'] = shape;
-        shape['color'] = randomColor;
-        shape['y'] = dropping;
-        shape['x'] = halfBoard;
-        postions.j50.push(shape);
-        console.log(postions.j50);
       }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
@@ -362,18 +340,17 @@ function draw(){
       ctx.fillStyle = randomColor;
       ctx.fill();
     } else if (shape === 'j75') {
-      if (dropping === 700) { shapeSwitch = true };
+      if (dropping === 700) {
+        shapeSwitch = true;
+        let place = {};
+        place['shape'] = shape;
+        place['color'] = randomColor;
+        place['y'] = dropping;
+        place['x'] = halfBoard;
+        positions.push(place);
+      }
       if (dropping < 700) {
         dropping += 1;
-      }
-      else if (dropping === 700) {
-        let shape = {};
-        shape['shape'] = shape;
-        shape['color'] = randomColor;
-        shape['y'] = dropping;
-        shape['x'] = halfBoard;
-        postions.j75.push(shape);
-        console.log(postions.j75);
       }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
@@ -385,18 +362,17 @@ function draw(){
       ctx.fillStyle = randomColor;
       ctx.fill();
     } else if (shape === 't1') {
-      if (dropping === 700) { shapeSwitch = true };
+      if (dropping === 700) {
+        shapeSwitch = true;
+        let place = {};
+        place['shape'] = shape;
+        place['color'] = randomColor;
+        place['y'] = dropping;
+        place['x'] = halfBoard;
+        positions.push(place);
+      }
       if (dropping < 700) {
         dropping += 1;
-      }
-      else if (dropping === 700) {
-        let shape = {};
-        shape['shape'] = shape;
-        shape['color'] = randomColor;
-        shape['y'] = dropping;
-        shape['x'] = halfBoard;
-        postions.t1.push(shape);
-        console.log(postions.t1);
       }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
@@ -410,18 +386,17 @@ function draw(){
       ctx.fillStyle = randomColor;
       ctx.fill();
     } else if (shape === 't25') {
-      if (dropping === 675) { shapeSwitch = true };
+      if (dropping === 675) {
+        shapeSwitch = true;
+        let place = {};
+        place['shape'] = shape;
+        place['color'] = randomColor;
+        place['y'] = dropping;
+        place['x'] = halfBoard;
+        positions.push(place);
+      }
       if (dropping < 675) {
         dropping += 1;
-      }
-      else if (dropping === 675) {
-        let shape = {};
-        shape['shape'] = shape;
-        shape['color'] = randomColor;
-        shape['y'] = dropping;
-        shape['x'] = halfBoard;
-        postions.t25.push(shape);
-        console.log(postions.t25);
       }
       ctx.beginPath();
       ctx.moveTo(25 + halfBoard, 0 + dropping);
@@ -435,18 +410,17 @@ function draw(){
       ctx.fillStyle = randomColor;
       ctx.fill();
     } else if (shape === 't50') {
-      if (dropping === 700) { shapeSwitch = true };
+      if (dropping === 700) {
+        shapeSwitch = true;
+        let place = {};
+        place['shape'] = shape;
+        place['color'] = randomColor;
+        place['y'] = dropping;
+        place['x'] = halfBoard;
+        positions.push(place);
+      }
       if (dropping < 700) {
         dropping += 1;
-      }
-      else if (dropping === 700) {
-        let shape = {};
-        shape['shape'] = shape;
-        shape['color'] = randomColor;
-        shape['y'] = dropping;
-        shape['x'] = halfBoard;
-        postions.t50.push(shape);
-        console.log(postions.t50);
       }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 25 + dropping);
@@ -460,18 +434,17 @@ function draw(){
       ctx.fillStyle = randomColor;
       ctx.fill();
     } else if (shape === 't75') {
-      if (dropping === 675) { shapeSwitch = true };
-      if (dropping < 675) {
-        dropping += 1;
-      }
-      else if (dropping === 675) {
+      if (dropping === 675) {
+        shapeSwitch = true;
         let shape = {};
         shape['shape'] = shape;
         shape['color'] = randomColor;
         shape['y'] = dropping;
         shape['x'] = halfBoard;
-        postions.t75.push(shape);
-        console.log(postions.t75);
+        positions.push(shape);
+      }
+      if (dropping < 675) {
+        dropping += 1;
       }
       ctx.beginPath();
       ctx.moveTo(0 + halfBoard, 0 + dropping);
